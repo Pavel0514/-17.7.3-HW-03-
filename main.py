@@ -1,16 +1,24 @@
-per_cent = {'ТКБ': 5.6, 'СКБ': 5.9, 'ВТБ': 4.28, 'СБЕР': 4.0}
+def calculate_ticket_cost():
+    ticket_count = int(input("Введите количество билетов: "))
+    total_cost = 0
 
-money = float(input("Введите сумму, которую планируете положить под проценты: "))
+    for _ in range(ticket_count):
+        age = int(input("Введите возраст посетителя: "))
 
-deposit = []
-for bank, percent in per_cent.items():
-    accrued_interest = money * percent / 100
-    deposit.append(accrued_interest)
+        if age < 18:
+            ticket_cost = 0
+        elif 18 <= age < 25:
+            ticket_cost = 990
+        else:
+            ticket_cost = 1390
 
-max_deposit = max(deposit)  # Находим максимальное значение в списке deposit
+        total_cost += ticket_cost
 
-print("Накопленные средства за год вклада:")
-for i, value in enumerate(deposit):
-    print(f"Банк: {list(per_cent.keys())[i]}, сумма: {value:.2f}")
+    if ticket_count > 3:
+        total_cost *= 0.9
 
-print(f"Максимальная сумма, которую вы можете заработать: {max_deposit:.2f}")
+    return total_cost
+
+
+total_cost = calculate_ticket_cost()
+print("Сумма к оплате:", total_cost, "руб.")
