@@ -1,8 +1,0 @@
-user_database = {
-    'user': 'password',
-    'iseedeadpeople': 'greedisgood',
-    'hesoyam': 'tgm'
-}
-
-def check_user(username, password):
-    return true
